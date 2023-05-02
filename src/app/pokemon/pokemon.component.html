@@ -1,12 +1,14 @@
-<div class="mt - 3">
-<img [src]="pokemon.message"
-width="300px"
-class="shadown-lg rounded">
-<div class="display-6">
-  <span *ngFor="let name of getBreed()"> </span>
-  {{name}}
-</div>
-<div class="btn btn-primary">
-Proximo
-</div>
+<div class="mt - 3 ">
+  <img [src]="pokeImg()" alt="{{ pokemon.name }}" width="300px" class="shadown-lg rounded"/>
+
+  <div class="display-6">
+    <p>{{pokemon.id}}</p>
+    <p>{{ pokemon.name }}</p>
+    <p>{{pokeTipo()}}</p>
+    <p>{{pokemon.height}}</p>
+    <p>{{pokemon.weight}}</p>
+  </div>
+  <div class="btn btn-primary" (click) = "diminuiPoke()">Anterior</div>
+  <div class="btn btn-primary" (click) = "aumentaPoke()">Proximo</div>
+
 </div>
