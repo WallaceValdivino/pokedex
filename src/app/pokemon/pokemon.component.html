@@ -1,14 +1,17 @@
-<div class="mt - 3 ">
-  <img [src]="pokeImg()" alt="{{ pokemon.name }}" width="300px" class="shadown-lg rounded"/>
 
-  <div class="display-6">
-    <p>{{pokemon.id}}</p>
-    <p>{{ pokemon.name }}</p>
-    <p>{{pokeTipo()}}</p>
-    <p>{{pokemon.height}}</p>
-    <p>{{pokemon.weight}}</p>
+<div  *ngIf="pokemon" class="mt-3 bg-dark p-5" >
+  <img [src]="pokeImg()" alt="{{ pokemon.name }}" width="400px" class="shadown-lg rounded bg-secondary bg-gradient"/>
+<div class="container ">
+  <div class="display-6 text-white">
+    <p> Id: {{pokemon.id}}</p>
+    <p> Nome: {{ pokemon.name }}</p>
+    <p> Tipo: {{pokeTipo()}}</p>
+    <p> Altura: {{pokemon.height}} cm</p>
+    <p> Peso: {{pokemon.weight/10}} kg</p>
   </div>
-  <div class="btn btn-primary" (click) = "diminuiPoke()">Anterior</div>
-  <div class="btn btn-primary" (click) = "aumentaPoke()">Proximo</div>
+</div>
+  <div class="btn btn-warning m-2" (click) = "diminuiPoke()">Anterior</div>
+  <div class="btn btn-warning m-2" (click) = "aumentaPoke()">Proximo</div>
 
 </div>
+

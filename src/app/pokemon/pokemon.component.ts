@@ -1,6 +1,6 @@
 
  import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { PokedexService } from '../pokedex.service';
 
 @Component({
   selector: 'app-pokemon',
@@ -11,17 +11,17 @@ export class PokemonComponent implements OnInit {
   pokemon : any;
   pokeId: number = 1;
 
-  constructor(private http: HttpClient){}
+  constructor(private pokedexService: PokedexService){}
 
 ngOnInit(): void {
-this.loadPokemon;
+this.loadPokemon();
 }
 
 loadPokemon(): void{
 
-  this.http.get(`https://pokeapi.co/api/v2/pokemon/${this.pokeId}`).subscribe(
-    (response) => {
-      this.pokemon = response;
+  this.pokedexService.loadPokemon(this.pokeId).subscribe(
+   pokemon => {
+      this.pokemon = pokemon;
     },
     (error) =>{
       console.log(error);
